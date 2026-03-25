@@ -4,17 +4,17 @@ const props = defineProps({gemSummary:{type:Object, required: true}});
 
 <template>
   <div class="gem-card">
-    <img
-      :src="gemSummary.icon"
-      :alt="gemSummary.name"
-      class="gem-icon"
-    />
+    <img :src="gemSummary.icon" :alt="gemSummary.name" class="gem-icon" />
 
     <p>{{ gemSummary.name }}</p>
-    <p>{{ gemSummary.lvl1Price ?? 'NOP' }}</p>
-    <p>{{ gemSummary.lvl1q20Price ?? 'NOP' }}</p>
-    <p>{{ gemSummary.lvlMaxPrice ?? 'NOP' }}</p>
-    <p>{{ gemSummary.lvlMaxq20Price ?? 'NOP' }}</p>
+    <p>1/0 : {{ gemSummary.lvl1Price ?? 'NOP' }}</p>
+    <p>1/20 : {{ gemSummary.lvl1q20Price ?? 'NOP' }}</p>
+    <p>Max/0 : {{ gemSummary.lvlMaxPrice ?? 'NOP' }}</p>
+    <p>Max/20 : {{ gemSummary.lvlMaxq20Price ?? 'NOP' }}</p>
+
+    <p>Gain 1/0 → Max/0 : {{ gemSummary.profit10ToMax0 ?? 'NOP' }}</p>
+    <p>Gain 1/0 → Max/20 : {{ gemSummary.profit10ToMax20 ?? 'NOP' }}</p>
+    <p>Gain 1/20 → Max/20 : {{ gemSummary.profit120ToMax20 ?? 'NOP' }}</p>
   </div>
 </template>
 
