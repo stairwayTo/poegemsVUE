@@ -3,19 +3,18 @@ const props = defineProps({gemSummary:{type:Object, required: true}});
 </script>
 
 <template>
-  <div class="gem-card">
+  <tr>
     <img :src="gemSummary.icon" :alt="gemSummary.name" class="gem-icon" />
 
-    <p>{{ gemSummary.name }}</p>
-    <p>1/0 : {{ gemSummary.lvl1Price ?? 'NOP' }}</p>
-    <p>1/20 : {{ gemSummary.lvl1q20Price ?? 'NOP' }}</p>
-    <p>Max/0 : {{ gemSummary.lvlMaxPrice ?? 'NOP' }}</p>
-    <p>Max/20 : {{ gemSummary.lvlMaxq20Price ?? 'NOP' }}</p>
-
-    <p>Gain 1/0 → Max/0 : {{ gemSummary.profit10ToMax0 ?? 'NOP' }}</p>
-    <p>Gain 1/0 → Max/20 : {{ gemSummary.profit10ToMax20 ?? 'NOP' }}</p>
-    <p>Gain 1/20 → Max/20 : {{ gemSummary.profit120ToMax20 ?? 'NOP' }}</p>
-  </div>
+    <td>{{ gemSummary.name }}</td>
+    <td>{{ gemSummary.lvl1Price ?? 'NOP' }}</td>
+    <td>{{ gemSummary.lvl1q20Price ?? 'NOP' }}</td>
+    <td>{{ gemSummary.lvlMaxPrice ?? 'NOP' }}</td>
+    <td>{{ gemSummary.lvlMaxq20Price ?? 'NOP' }}</td>
+    <td>{{ gemSummary.profit1_0ToMax_0 ?? 'NOP' }}</td>
+    <td>{{ gemSummary.profit1_0ToMax_20 ?? 'NOP' }}</td>
+    <td>{{ gemSummary.profit1_20ToMax_20 ?? 'NOP' }}</td>
+  </tr>
 </template>
 
 <style scoped>
