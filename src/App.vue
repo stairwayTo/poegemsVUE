@@ -1,78 +1,68 @@
 <script setup lang="ts">
-import { ref, computed} from 'vue'
+import { computed } from 'vue'
+import GemCard from '@/components/GemCard.vue'
+import gemsData from './data/gems.json'
 
 interface Gem {
   id: number
   name: string
-  itemClass: number
-  corrupted: boolean
+  icon: string
   gemLevel: number
   gemQuality: number
   chaosValue: number
+  corrupted: boolean
 }
 
-const gems = ref<Gem[]>([
-  {
-    id: 96049,
-    name: 'Awakened Empower Support',
-    itemClass: 4,
-    corrupted: true,
-    gemLevel: 5,
-    gemQuality: 20,
-    chaosValue: 76689,
-  },
-  {
-    id: 9049,
-    name: 'Awakened Support',
-    itemClass: 4,
-    corrupted: true,
-    gemLevel: 2,
-    gemQuality: 20,
-    chaosValue: 79,
-  },
-  {
-    id: 9609,
-    name: 'Empower Support',
-    itemClass: 4,
-    corrupted: false,
-    gemLevel: 3,
-    gemQuality: 20,
-    chaosValue: 7689,
-  },
-])
+interface GemSummary {
+  name: string
+  icon: string
+  lvl1Price: number | undefined
+  lvl1q20Price: number | undefined
+  lvlMaxPrice: number | undefined
+  lvlMaxq20Price: number | undefined
+  maxLevel: number
+}
 
-const searchBar = ref('');
+const gemResults = computed<GemSummary[]>(() => {
+  const grouped = gemsData.lines.reduce<Record<string, Gem[]>>((acc, gem) => {
+    if (gem.corrupted) return acc
 
-const filteredGems = computed(() => {
-  if (!searchBar.value) return gems.value
-  return gems.value.filter(gems =>
-    gems.name.toLowerCase().includes(searchBar.value.toLowerCase())||
-      gems.corrupted.toString().includes(searchBar.value.toString(),
-    )
-  )
+    if (!acc[gem.name]) acc[gem.name] = []
+    acc[gem.name].push(gem)
+    return acc
+  }, {})
+
+  return Object.values(grouped).map((gems) => {
+    const maxLevel = Math.max(...gems.map(g => g.gemLevel))
+
+    return {
+      name: gems[0].name,
+      icon: gems[0].icon,
+      lvl1Price: gems.find(g => g.gemLevel === 1 && !g.gemQuality)?.chaosValue,
+      lvl1q20Price: gems.find(g => g.gemLevel === 1 && g.gemQuality === 20)?.chaosValue,
+      lvlMaxPrice: gems.find(g => g.gemLevel === maxLevel && !g.gemQuality)?.chaosValue,
+      lvlMaxq20Price: gems.find(g => g.gemLevel === maxLevel && g.gemQuality === 20)?.chaosValue,
+      maxLevel
+    }
+  })
 })
-
+console.log(gemResults.value)
 </script>
 
 <template>
-  <input
-    v-model="searchBar"
-    placeholder="Search Bar"
-    class="search-bar"
+
+  <h1>POGNON</h1>
+  <header>
+  </header>
+  <main>
+    <div>
+    </div>
+    <GemCard
+      v-for="item in gemResults"
+      :key="item.name"
+      :gemSummary="item"
     />
-
-  <p class="count">{{ filteredGems.length }} gem(s)</p>
-
-
-  <div v-for="item in filteredGems" :key="item.id">
-    <p>{{ item.id }}</p>
-    <p>{{ item.name }}</p>
-    <p>{{ item.itemClass }}</p>
-    <p v-if="item.corrupted">Corrupted</p>
-    <p>{{ item.gemLevel }}</p>
-    <p>{{ item.gemQuality }}</p>
-    <p>{{ item.chaosValue }}</p>
-  </div>
+  </main>
 </template>
 
 <style scoped></style>
