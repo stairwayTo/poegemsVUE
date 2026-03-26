@@ -15,4 +15,12 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  server: {
+    proxy: {
+      '/poe1': {
+        target: 'https://poe.ninja',
+        changeOrigin: true,
+      }
+    }
+  }
 })

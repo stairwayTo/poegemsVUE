@@ -1,65 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { onMounted } from 'vue'
 import GemCard from '@/components/GemCard.vue'
-import gemsData from '@/data/gems.json'
-import type { GemSummary } from '@/type/gem.ts'
+import { useGemStore } from '@/stores/gemStore.ts'
 
-interface Gem {
-  id: number
-  name: string
-  icon: string
-  gemLevel: number
-  gemQuality: number
-  chaosValue: number
-  corrupted: boolean
-}
+const gemStore = useGemStore()
+onMounted(() => {gemStore.fetchGems()})
 
-
-
-const gemResults = computed<GemSummary[]>(() => {
-  const nonCorruptedGems = gemsData.lines.filter((gem) => !gem.corrupted && gem.count >= 10)
-
-  const grouped = nonCorruptedGems.reduce<Record<string, Gem[]>>((acc, gem) => {
-    if (!acc[gem.name]) acc[gem.name] = []
-    acc[gem.name].push(gem)
-    return acc
-  }, {})
-
-  return Object.values(grouped).map((gems) => {
-    const maxLevel = Math.max(...gems.map((g) => g.gemLevel))
-    let lvl1Price
-    let lvl1q20Price
-    let lvlMaxPrice
-    let lvlMaxq20Price
-
-    for (let gem of gems) {
-      if (gem.gemLevel === 1 && !gem.gemQuality)
-        lvl1Price = gem.chaosValue
-      if (gem.gemLevel === 1 && gem.gemQuality === 20)
-        lvl1q20Price = gem.chaosValue
-      if (gem.gemLevel === maxLevel && !gem.gemQuality)
-        lvlMaxPrice = gem.chaosValue
-      if (gem.gemLevel === maxLevel && gem.gemQuality === 20)
-        lvlMaxq20Price = gem.chaosValue
-    }
-    return {
-      name: gems[0].name,
-      icon: gems[0].icon,
-      lvl1Price,
-      lvl1q20Price,
-      lvlMaxPrice,
-      lvlMaxq20Price,
-      maxLevel,
-      profit1_0ToMax_0:
-        lvl1Price !== undefined && lvlMaxPrice !== undefined ? Math.round(lvlMaxPrice - lvl1Price) : undefined,
-      profit1_0ToMax_20:
-        lvl1Price !== undefined && lvlMaxq20Price !== undefined ? Math.round(lvlMaxq20Price - lvl1Price) : undefined,
-      profit1_20ToMax_20:
-        lvl1q20Price !== undefined && lvlMaxq20Price !== undefined ?Math.round(lvlMaxq20Price - lvl1q20Price) : undefined,
-    }
-  })
-})
-console.log(gemResults.value)
 </script>
 
 <template>
@@ -68,21 +14,30 @@ console.log(gemResults.value)
   <main>
     <table>
       <thead>
-      <tr>
-        <th>Icon</th>
-        <th>Name</th>
-        <th>1/0q</th>
-        <th>1/20q</th>
-        <th>Max/0q</th>
-        <th>Max/20q</th>
-        <th>Profit <br> 1/0→1/20</th>
-        <th>Profit <br> 1/0→Max/0</th>
-        <th>Profit <br> 1/0→Max/20</th>
-        <th></th>
-      </tr>
+        <tr>
+          <th>Icon</th>
+          <th>Name</th>
+          <th>1/0q</th>
+          <th>1/20q</th>
+          <th>Max/0q</th>
+          <th>Max/20q</th>
+          <th>
+            Profit <br />
+            1/0→1/20
+          </th>
+          <th>
+            Profit <br />
+            1/0→Max/0
+          </th>
+          <th>
+            Profit <br />
+            1/0→Max/20
+          </th>
+          <th></th>
+        </tr>
       </thead>
       <tbody>
-      <GemCard v-for="item in gemResults" :key="item.name" :gemSummary="item" />
+        <GemCard v-for="item in gemStore.gems" :key="item.name" :gemSummary="item" />
       </tbody>
     </table>
   </main>

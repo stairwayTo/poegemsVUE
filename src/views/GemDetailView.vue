@@ -1,5 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { useRoute } from 'vue-router'
 
-<template></template>
+useRoute(gem.id)
+</script>
+
+<template>
+
+</template>
 
 <style scoped></style>
