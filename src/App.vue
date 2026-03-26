@@ -37,16 +37,21 @@ const gemResults = computed<GemSummary[]>(() => {
 
   return Object.values(grouped).map((gems) => {
     const maxLevel = Math.max(...gems.map((g) => g.gemLevel))
+    let lvl1Price
+    let lvl1q20Price
+    let lvlMaxPrice
+    let lvlMaxq20Price
 
-    const lvl1Price = gems.find((g) => g.gemLevel === 1 && !g.gemQuality)?.chaosValue
-
-    const lvl1q20Price = gems.find((g) => g.gemLevel === 1 && g.gemQuality === 20)?.chaosValue
-
-    const lvlMaxPrice = gems.find((g) => g.gemLevel === maxLevel && !g.gemQuality)?.chaosValue
-
-    const lvlMaxq20Price = gems.find(
-      (g) => g.gemLevel === maxLevel && g.gemQuality === 20)?.chaosValue
-
+    for (let gem of gems) {
+      if (gem.gemLevel === 1 && !gem.gemQuality)
+        lvl1Price = gem.chaosValue
+      if (gem.gemLevel === 1 && gem.gemQuality === 20)
+        lvl1q20Price = gem.chaosValue
+      if (gem.gemLevel === maxLevel && !gem.gemQuality)
+        lvlMaxPrice = gem.chaosValue
+      if (gem.gemLevel === maxLevel && gem.gemQuality === 20)
+        lvlMaxq20Price = gem.chaosValue
+    }
     return {
       name: gems[0].name,
       icon: gems[0].icon,
@@ -92,4 +97,44 @@ console.log(gemResults.value)
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5f5f0;
+  font-family: Arial, sans-serif;
+  color: #2c2c2c;
+}
+
+h1 {
+  padding: 20px;
+  font-size: 24px;
+  color: #2c2c2c;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+
+th {
+  background-color: #e8e8e4;
+  color: #2c2c2c;
+  font-weight: bold;
+  padding: 10px 12px;
+  text-align: left;
+  border-bottom: 2px solid #cccccc;
+}
+
+td {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eeeeee;
+  color: #2c2c2c;
+}
+</style>
