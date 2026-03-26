@@ -1,5 +1,9 @@
-export interface GemWiki {
+export interface CargoGemRaw {
   name: string
-  level: number
-  experience?: number
+  level: string
+  experience?: string
+}
+export interface GemMaxXp {
+  name: string
+  xpToMaxLvl: number
 }

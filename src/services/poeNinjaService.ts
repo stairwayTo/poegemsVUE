@@ -1,6 +1,7 @@
 import axios from 'axios'
+
 const CACHE_KEY = 'poegems-cache'
-const poeNinjaAPI = '/poe1/api/economy/stash/current/item/overview?league=Mirage&type=SkillGem'
+const POE_NINJA_API = '/poe1/api/economy/stash/current/item/overview?league=Mirage&type=SkillGem'
 const ONE_HOUR = 60 * 60 * 1000
 
 export async function getGems() {
@@ -11,7 +12,7 @@ export async function getGems() {
       return data
     }
   }
-  const response = await axios.get(poeNinjaAPI)
+  const response = await axios.get(POE_NINJA_API)
   localStorage.setItem(CACHE_KEY, JSON.stringify({
     timestamp: Date.now(),
     data: response.data.lines
