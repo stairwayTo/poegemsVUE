@@ -1,11 +1,29 @@
 <script setup lang="ts">
+import { useRouter } from 'vue-router'
+import { useWatchlistStore} from '@/stores/watchlistStore.ts'
+
 const props = defineProps({gemSummary:{type:Object, required: true}});
+
+const router = useRouter()
+
+function goToDetail() {
+  router.push(`/gem/${props.gemSummary.id}`)
+}
+
+const watchlistStore = useWatchlistStore()
+
+function addToWatchlist() {
+  watchlistStore.addToWatchlist(props.gemSummary)
+  console.log(watchlistStore.watchlist)
+}
+
 </script>
 
 <template>
-  <tr>
+  <tr @click="goToDetail">
+<td>
     <img :src="gemSummary.icon" :alt="gemSummary.name" class="gem-icon" />
-
+</td>
     <td>{{ gemSummary.name }}</td>
     <td>{{ gemSummary.lvl1Price ?? 'NOP' }}</td>
     <td>{{ gemSummary.lvl1q20Price ?? 'NOP' }}</td>
@@ -19,6 +37,9 @@ const props = defineProps({gemSummary:{type:Object, required: true}});
     </td>
     <td :class="gemSummary.profit1_20ToMax_20 ? 'profit-positive' : 'profit-none'">
       {{ gemSummary.profit1_20ToMax_20 ?? 'NOP' }}
+    </td>
+    <td>
+      <button @click.stop ="addToWatchlist()"> FAV </button>
     </td>
   </tr>
 </template>

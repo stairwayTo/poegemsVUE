@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import GemCard from '@/components/GemCard.vue'
 import gemsData from '@/data/gems.json'
+import type { GemSummary } from '@/type/gem.ts'
 
 interface Gem {
   id: number
@@ -13,19 +14,7 @@ interface Gem {
   corrupted: boolean
 }
 
-interface GemSummary {
-  id: number
-  name: string
-  icon: string
-  lvl1Price?: number
-  lvl1q20Price?: number
-  lvlMaxPrice?: number
-  lvlMaxq20Price?: number
-  maxLevel: number
-  profit1_0ToMax_0?: number
-  profit1_0ToMax_20?: number
-  profit1_20ToMax_20?: number
-}
+
 
 const gemResults = computed<GemSummary[]>(() => {
   const nonCorruptedGems = gemsData.lines.filter((gem) => !gem.corrupted && gem.count >= 10)
@@ -89,6 +78,7 @@ console.log(gemResults.value)
         <th>Profit <br> 1/0→1/20</th>
         <th>Profit <br> 1/0→Max/0</th>
         <th>Profit <br> 1/0→Max/20</th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
