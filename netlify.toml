@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/poe1/*"
+  to = "https://poe.ninja/api/data/:splat"
+  status = 200
+  force = true
