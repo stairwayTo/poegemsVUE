@@ -2,13 +2,13 @@
 import { useRouter } from 'vue-router'
 import { useWatchlistStore} from '@/stores/watchlistStore.ts'
 
-const props = defineProps({gemSummary:{type:Object, required: true}});
-
+// const props = defineProps({gemSummary:{type:Object, required: true}});
+const props = defineProps<{ gemSummary: GemSummary }>()
 const router = useRouter()
 
-function goToDetail() {
-  router.push(`/gem/${props.gemSummary.id}`)
-}
+// function goToDetail() {
+//   router.push(`/gem/${props.gemSummary.name}`)
+// }
 
 const watchlistStore = useWatchlistStore()
 
@@ -20,7 +20,7 @@ function addToWatchlist() {
 </script>
 
 <template>
-  <tr @click="goToDetail">
+  <tr>
 <td>
     <img :src="gemSummary.icon" :alt="gemSummary.name" class="gem-icon" />
 </td>
@@ -29,6 +29,10 @@ function addToWatchlist() {
     <td>{{ gemSummary.lvl1q20Price ?? 'NOP' }}</td>
     <td>{{ gemSummary.lvlMaxPrice ?? 'NOP' }}</td>
     <td>{{ gemSummary.lvlMaxq20Price ?? 'NOP' }}</td>
+
+    <td :class="gemSummary.profit1_0To1_20 ? 'profit-positive' : 'profit-none'">
+      {{ gemSummary.profit1_0To1_20 ?? 'NOP' }}
+    </td>
     <td :class="gemSummary.profit1_0ToMax_0 ? 'profit-positive' : 'profit-none'">
       {{ gemSummary.profit1_0ToMax_0 ?? 'NOP' }}
     </td>
@@ -37,6 +41,9 @@ function addToWatchlist() {
     </td>
     <td :class="gemSummary.profit1_20ToMax_20 ? 'profit-positive' : 'profit-none'">
       {{ gemSummary.profit1_20ToMax_20 ?? 'NOP' }}
+    </td>
+    <td :class="gemSummary.profitPerMXp ? 'profit-positive' : 'profit-none'">
+      {{ gemSummary.profitPerMXp ?? 'NOP' }}
     </td>
     <td>
       <button @click.stop ="addToWatchlist()"> FAV </button>

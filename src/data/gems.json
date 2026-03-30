@@ -59,16 +59,6 @@
     "xpToMax": 341913067,
     "gemClass": "Skill Gem"
   },
-  "Ancestral Protector": {
-    "maxLevel": 20,
-    "xpToMax": 342050139,
-    "gemClass": "Skill Gem"
-  },
-  "Ancestral Warchief": {
-    "maxLevel": 20,
-    "xpToMax": 340652931,
-    "gemClass": "Skill Gem"
-  },
   "Anger": {
     "maxLevel": 20,
     "xpToMax": 341331311,
@@ -199,91 +189,6 @@
     "xpToMax": 341331311,
     "gemClass": "Skill Gem"
   },
-  "Awakened Added Chaos Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Added Cold Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Added Fire Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920828672,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Added Lightning Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Ancestral Call Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920820181,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Arrow Nova Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920828672,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Blasphemy Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Brutality Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Burning Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Cast On Critical Strike Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Cast While Channelling Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Chain Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Cold Penetration Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Controlled Destruction Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Deadly Ailments Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Elemental Damage with Attacks Support": {
-    "maxLevel": 5,
-    "xpToMax": 1367324524,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Elemental Focus Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
   "Awakened Empower Support": {
     "maxLevel": 4,
     "xpToMax": 2086927923,
@@ -297,96 +202,6 @@
   "Awakened Enlighten Support": {
     "maxLevel": 4,
     "xpToMax": 2086927923,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Fire Penetration Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Fork Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Generosity Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Greater Multiple Projectiles Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Hextouch Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Increased Area of Effect Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Lightning Penetration Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Melee Physical Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Melee Splash Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Minion Damage Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Multistrike Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Spell Cascade Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920820181,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Spell Echo Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Swift Affliction Support": {
-    "maxLevel": 5,
-    "xpToMax": 1908496231,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Unbound Ailments Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Unleash Support": {
-    "maxLevel": 5,
-    "xpToMax": 1889340172,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Vicious Projectiles Support": {
-    "maxLevel": 5,
-    "xpToMax": 1919590318,
-    "gemClass": "Support Gem"
-  },
-  "Awakened Void Manipulation Support": {
-    "maxLevel": 5,
-    "xpToMax": 1920762677,
     "gemClass": "Support Gem"
   },
   "Ball Lightning": {
@@ -915,8 +730,8 @@
     "gemClass": "Skill Gem"
   },
   "Convocation": {
-    "maxLevel": 18,
-    "xpToMax": 66697705,
+    "maxLevel": 1,
+    "xpToMax": 0,
     "gemClass": "Skill Gem"
   },
   "Cooldown Recovery Support": {
@@ -2174,11 +1989,6 @@
     "xpToMax": 341831131,
     "gemClass": "Support Gem"
   },
-  "Item Quantity Support": {
-    "maxLevel": 20,
-    "xpToMax": 341331311,
-    "gemClass": "Support Gem"
-  },
   "Item Rarity Support": {
     "maxLevel": 20,
     "xpToMax": 339855551,
@@ -2757,11 +2567,6 @@
   "Pyroclast Mine of Sabotage": {
     "maxLevel": 20,
     "xpToMax": 340652931,
-    "gemClass": "Skill Gem"
-  },
-  "Quickstep": {
-    "maxLevel": 1,
-    "xpToMax": 0,
     "gemClass": "Skill Gem"
   },
   "Rage Support": {
@@ -3579,11 +3384,6 @@
     "xpToMax": 342004647,
     "gemClass": "Skill Gem"
   },
-  "Vaal Ancestral Warchief": {
-    "maxLevel": 20,
-    "xpToMax": 340652931,
-    "gemClass": "Skill Gem"
-  },
   "Vaal Animate Weapon": {
     "maxLevel": 20,
     "xpToMax": 342050139,
@@ -3612,11 +3412,6 @@
   "Vaal Blight": {
     "maxLevel": 20,
     "xpToMax": 342051651,
-    "gemClass": "Skill Gem"
-  },
-  "Vaal Breach": {
-    "maxLevel": 1,
-    "xpToMax": 0,
     "gemClass": "Skill Gem"
   },
   "Vaal Burning Arrow": {
@@ -3724,11 +3519,6 @@
     "xpToMax": 342051651,
     "gemClass": "Skill Gem"
   },
-  "Vaal Immortal Call": {
-    "maxLevel": 20,
-    "xpToMax": 338712291,
-    "gemClass": "Skill Gem"
-  },
   "Vaal Impurity of Fire": {
     "maxLevel": 20,
     "xpToMax": 341331311,
@@ -3757,11 +3547,6 @@
   "Vaal Lightning Trap": {
     "maxLevel": 20,
     "xpToMax": 342004647,
-    "gemClass": "Skill Gem"
-  },
-  "Vaal Lightning Warp": {
-    "maxLevel": 20,
-    "xpToMax": 342026975,
     "gemClass": "Skill Gem"
   },
   "Vaal Molten Shell": {

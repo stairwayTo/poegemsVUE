@@ -1,11 +1,15 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { computed, onMounted } from 'vue'
 import GemCard from '@/components/GemCard.vue'
 import { useGemStore } from '@/stores/gemStore.ts'
 
 const gemStore = useGemStore()
-onMounted(() => {gemStore.fetchGems()})
-
+onMounted(() => {
+  gemStore.fetchGems()
+})
+const sortedGems = computed(() =>
+  [...gemStore.gems].sort((a, b) => (b.profitPerMXp ?? 0) - (a.profitPerMXp ?? 0)),
+)
 </script>
 
 <template>
@@ -33,11 +37,17 @@ onMounted(() => {gemStore.fetchGems()})
             Profit <br />
             1/0→Max/20
           </th>
+          <th>
+            Profit <br />
+            1/20→Max/20
+          </th>
+          <th>Profit<br />/ MXp</th>
+
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <GemCard v-for="item in gemStore.gems" :key="item.name" :gemSummary="item" />
+        <GemCard v-for="item in sortedGems" :key="item.name" :gemSummary="item" />
       </tbody>
     </table>
   </main>

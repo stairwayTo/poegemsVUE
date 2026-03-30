@@ -11,8 +11,8 @@ async function fetchAllGems(): Promise<{ name: string, gemClass: string }[]> {
       params: {
         action: 'cargoquery',
         tables: 'items',
-        fields: 'items.name,items.class',
-        where: 'items.class="Skill Gem" OR items.class="Support Gem"',
+        fields: 'items.name,items.class,items.drop_enabled',
+        where: '(items.class="Skill Gem" OR items.class="Support Gem") AND items.drop_enabled="1"',
         format: 'json',
         limit: '500',
         offset: offset
@@ -37,7 +37,7 @@ async function fetchGemMaxXp(gem: { name: string, gemClass: string }): Promise<{
       tables: 'items,skill_levels',
       join_on: 'items._pageID=skill_levels._pageID',
       fields: 'items.name,skill_levels.level,skill_levels.experience',
-      where: `items.name="${gem.name}"`,
+      where: `items.name="${gem.name}" AND items.removal_version IS NULL`,
       format: 'json',
       limit: '30'
     }
